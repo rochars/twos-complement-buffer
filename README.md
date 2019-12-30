@@ -1,5 +1,5 @@
 # twos-complement-buffer
-Copyright (c) 2018 Rafael da Silva Rocha.  
+Copyright (c) 2018-2019 Rafael da Silva Rocha.  
 https://github.com/rochars/twos-complement-buffer
 
 [![NPM version](https://img.shields.io/npm/v/twos-complement-buffer.svg?style=for-the-badge)](https://www.npmjs.com/package/twos-complement-buffer) [![Docs](https://img.shields.io/badge/docs-online-blue.svg?style=for-the-badge)](https://rochars.github.io/twos-complement-buffer/docs/index.html) [![Tests](https://img.shields.io/badge/tests-online-blue.svg?style=for-the-badge)](https://rochars.github.io/twos-complement-buffer/test/dist/browser.html)  
@@ -8,13 +8,7 @@ https://github.com/rochars/twos-complement-buffer
 **twos-complement-buffer** is a module to encode and decode two's complement integers to and from byte buffers.
 
 - **MIT licensed**
-- **Use it out of the box in the browser**
-- **Use it out of the box in Node.js**
-- **Can be used with arrays and typed arrays**
-- **Compatible with IE8+**
-- **Include TypeScript declaration file**
-- **Tested against Python's struct module**
-- **Less than 2kb minified**
+- **Can be used where typed arrays can't**
 
 ## Install
 ```
@@ -23,44 +17,20 @@ npm install twos-complement-buffer
 
 ## Use
 
-### Node
-If you installed via [NPM](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com), **import TwosComplementBuffer from twos-complement-buffer**:
-```javascript
-import TwosComplementBuffer from 'twos-complement-buffer';
-
-// A byte buffer, array and Uint8Array can be used
-let buffer = [];
-
-// Create a UintBuffer to handle 32-bit numbers
-let uintBufer = new UintBuffer(32);
-
-// Pack a value
-uintBufer.pack(buffer, -2045);
-
-// Check the buffer
-console.log(buffer);
-```
-
-Or **require**:
-```javascript
-const TwosComplementBuffer = require('twos-complement-buffer');
-```
-
 ### Browser
-Use **twos-complement-buffer.umd.js** in the */dist* folder of this package:
+Use the **twos-complement-buffer.js** file in the */dist* folder:
 ```html
-<script src="twos-complement-buffer.umd.js"></script>
+<script src="twos-complement-buffer.js"></script>
 <script>
-  import TwosComplementBuffer from 'twos-complement-buffer';
 
   // A byte buffer, array and Uint8Array can be used
   let buffer = [];
 
-  // Create a UintBuffer to handle 32-bit numbers
-  let uintBufer = new UintBuffer(32);
+  // Create a TwosComplementBuffer to handle 32-bit numbers
+  let tcbParser = new TwosComplementBuffer(32);
 
   // Pack a value
-  uintBufer.pack(buffer, 3247);
+  tcbParser.pack(buffer, -2045);
 
   // Check the buffer
   console.log(buffer);
@@ -75,6 +45,23 @@ Or load it from the [jsDelivr](https://cdn.jsdelivr.net/npm/twos-complement-buff
 Or load it from [unpkg](https://unpkg.com/twos-complement-buffer):
 ```html
 <script src="https://unpkg.com/twos-complement-buffer"></script>
+```
+
+### Node
+```javascript
+const TwosComplementBuffer = require('twos-complement-buffer');
+
+// A byte buffer, array and Uint8Array can be used
+let buffer = [];
+
+// Create a TwosComplementBuffer to handle 32-bit numbers
+let tcbParser = new TwosComplementBuffer(32);
+
+// Pack a value
+tcbParser.pack(buffer, -2045);
+
+// Check the buffer
+console.log(buffer);
 ```
 
 ## API
@@ -136,7 +123,7 @@ https://google.github.io/styleguide/jsguide.html
 This project is bound by a code of conduct: The [Contributor Covenant, version 1.4](https://github.com/rochars/twos-complement-buffer/blob/master/CODE_OF_CONDUCT.md), also available at https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
 
 ## LICENSE
-Copyright (c) 2018 Rafael da Silva Rocha.  
+Copyright (c) 2018-2019 Rafael da Silva Rocha.  
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

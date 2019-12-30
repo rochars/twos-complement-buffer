@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Rafael da Silva Rocha.
+ * Copyright (c) 2018-2019 Rafael da Silva Rocha.
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -23,20 +23,20 @@
  */
 
 /**
- * @fileoverview Pack and unpack two's complement signed integers.
+ * @fileoverview Parse two's complement ints to and from byte buffers.
  * @see https://github.com/rochars/twos-complement-buffer
  */
 
-/** @module TwosComplementBuffer */
+/** @module twos-complement-buffer */
 
 import UintBuffer from 'uint-buffer';
 
 /**
- * A class to write and read two's complement signed integers
+ * A class to parse two's complement signed integers
  * to and from byte buffers.
  * @extends UintBuffer
  */
-export default class TwosComplementBuffer extends UintBuffer {
+export class TwosComplementBuffer extends UintBuffer {
   
   /**
    * @param {number} bits The number of bits used by the integer.
