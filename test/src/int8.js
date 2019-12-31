@@ -68,25 +68,25 @@ describe('8-bit integers, signed', function() {
     assert.throws(function(){
       var buffer = [];
       tcb.pack(buffer, -129); // ommit the index, ==0
-    }, /Overflow/);
+    }, RangeError);
   });
   it('throw error if pack 128', function() {
     assert.throws(function(){
       var buffer = [];
       tcb.pack(buffer, 128); // ommit the index, ==0
-    }, /Overflow/);
+    }, RangeError);
   });
   it('throw error if pack -Infinity', function() {
     assert.throws(function(){
       var buffer = [];
       tcb.pack(buffer, -Infinity); // ommit the index, ==0
-    }, /Overflow/);
+    }, RangeError);
   });
   it('throw error if pack Infinity', function() {
     assert.throws(function(){
       var buffer = [];
       tcb.pack(buffer, Infinity); // ommit the index, ==0
-    }, /Overflow/);
+    }, RangeError);
   });
 
   // NaN
@@ -94,6 +94,6 @@ describe('8-bit integers, signed', function() {
     assert.throws(function(){
       var buffer = [];
       tcb.pack(buffer, NaN); // ommit the index, ==0
-    }, /NaN/);
+    }, TypeError);
   });
 });

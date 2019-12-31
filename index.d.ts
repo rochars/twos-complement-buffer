@@ -31,8 +31,8 @@ declare module TwosComplementBuffer {
      * @param {number} num The number.
      * @param {number=} index The index being written in the byte buffer.
      * @return {number} The next index to write on the byte buffer.
-     * @throws {Error} If num is NaN.
-     * @throws {Error} On overflow.
+     * @throws {TypeError} If num is NaN.
+     * @throws {RangeError} On overflow.
      */
     pack(buffer: Uint8Array|number[], num: number, index?: number): number;
 
@@ -41,7 +41,7 @@ declare module TwosComplementBuffer {
      * @param {!Uint8Array|!Array<number>} buffer An array of bytes.
      * @param {number=} index The index to read.
      * @return {number}
-     * @throws {Error} On overflow.
+     * @throws {RangeError} On overflow.
      */
     unpack(buffer: Uint8Array|number[], index?: number): number;
   }

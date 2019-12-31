@@ -76,6 +76,6 @@
     "typescript": "^3.7.4"
   },
   "dependencies": {
-    "uint-buffer": "^0.1.0"
+    "uint-buffer": "1.0.0"
   }
 }

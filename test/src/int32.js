@@ -48,25 +48,25 @@ describe('32-bit integers, signed', function() {
     assert.throws(function(){
       var buffer = [];
       tcb.pack(buffer, -2147483649); // ommit the index, ==0
-    }, /Overflow/);
+    }, RangeError);
   });
   it('throw error if pack 2147483648', function() {
     assert.throws(function(){
       var buffer = [];
       tcb.pack(buffer, 2147483648); // ommit the index, ==0
-    }, /Overflow/);
+    }, RangeError);
   });
   it('throw error if pack -Infinity', function() {
     assert.throws(function(){
       var buffer = [];
       tcb.pack(buffer, -Infinity); // ommit the index, ==0
-    }, /Overflow/);
+    }, RangeError);
   });
   it('throw error if pack Infinity', function() {
     assert.throws(function(){
       var buffer = [];
       tcb.pack(buffer, Infinity); // ommit the index, ==0
-    }, /Overflow/);
+    }, RangeError);
   });
 
   // NaN
@@ -74,6 +74,6 @@ describe('32-bit integers, signed', function() {
     assert.throws(function(){
       var buffer = [];
       tcb.pack(buffer, NaN); // ommit the index, ==0
-    }, /NaN/);
+    }, TypeError);
   });
 });
